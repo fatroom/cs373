@@ -123,6 +123,31 @@ class TestSequenceFunctions(unittest.TestCase):
 
     self.assertEqual(expected_result, p)
 
+  def test_dataset7(self):
+    expected_result=[[0.0, 0.0, 0.0],
+                     [0.0, 0.33333, 0.66666],
+                     [0.0, 0.0, 0.0]]
+
+    task.colors = [['green', 'green', 'green'],
+                   ['green', 'red', 'red'],
+                   ['green', 'green', 'green']]	
+    task.measurements=['red', 'red']
+    task.motions=[[0,0], [0, 1]]
+    task.sensor_right=1.0
+    task.p_move=0.5
+
+    p = task.calculate()
+
+    for i in range(len(p)):
+      for j in range(len(p[1])):
+        p[i][j] = round(p[i][j],4)
+
+    for i in range(len(expected_result)):
+      for j in range(len(expected_result[1])):
+        expected_result[i][j] = round(expected_result[i][j],4)
+
+    self.assertEqual(expected_result, p)
+
  
 if __name__ == '__main__':
   unittest.main()
