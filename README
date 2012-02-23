@@ -1,0 +1,6 @@
+Unit tests for homework on course CS373: Programming a Robotic Car
+
+Usage:
+# Edit homework$version/task.py file. Put your code between comments
+# Run python homework$version/test.py
+
