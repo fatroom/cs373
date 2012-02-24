@@ -8,7 +8,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
     task.colors = [['green','green','green'],
                    ['green','red','green'],
-                   ['green','green','green']]	
+                   ['green','green','green']]
     task.measurements=['red']
     task.motions=[[0,0]]
     task.sensor_right=1.0
@@ -16,14 +16,14 @@ class TestSequenceFunctions(unittest.TestCase):
 
     p = task.calculate()
 
-    self.assertEqual(expected_result, p)
+    self.assertAlmostEqual(expected_result, p)
 
   def test_dataset2(self):
     expected_result=[[0,0,0],[0,0.5,0.5],[0,0,0]]
 
     task.colors = [['green','green','green'],
                    ['green','red','red'],
-                   ['green','green','green']]	
+                   ['green','green','green']]
     task.measurements=['red']
     task.motions=[[0,0]]
     task.sensor_right=1.0
@@ -38,7 +38,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
     task.colors = [['green','green','green'],
                    ['green','red','red'],
-                   ['green','green','green']]	
+                   ['green','green','green']]
     task.measurements=['red']
     task.motions=[[0,0]]
     task.sensor_right=0.8
@@ -63,7 +63,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
     task.colors = [['green', 'green', 'green'],
                    ['green', 'red', 'red'],
-                   ['green', 'green', 'green']]	
+                   ['green', 'green', 'green']]
     task.measurements=['red', 'red']
     task.motions=[[0,0], [0, 1]]
     task.sensor_right=0.8
@@ -88,7 +88,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
     task.colors = [['green', 'green', 'green'],
                    ['green', 'red', 'red'],
-                   ['green', 'green', 'green']]	
+                   ['green', 'green', 'green']]
     task.measurements=['red', 'red']
     task.motions=[[0,0], [0, 1]]
     task.sensor_right=1.0
@@ -105,7 +105,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
     task.colors = [['green', 'green', 'green'],
                    ['green', 'red', 'red'],
-                   ['green', 'green', 'green']]	
+                   ['green', 'green', 'green']]
     task.measurements=['red', 'red']
     task.motions=[[0,0], [0, 1]]
     task.sensor_right=.8
@@ -119,9 +119,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
     for i in range(len(expected_result)):
       for j in range(len(expected_result[1])):
-        expected_result[i][j] = round(expected_result[i][j],4)
-
-    self.assertEqual(expected_result, p)
+        self.assertAlmostEqual(expected_result[i][j], p[i][j], 4)
 
   def test_dataset7(self):
     expected_result=[[0.0, 0.0, 0.0],
@@ -130,7 +128,7 @@ class TestSequenceFunctions(unittest.TestCase):
 
     task.colors = [['green', 'green', 'green'],
                    ['green', 'red', 'red'],
-                   ['green', 'green', 'green']]	
+                   ['green', 'green', 'green']]
     task.measurements=['red', 'red']
     task.motions=[[0,0], [0, 1]]
     task.sensor_right=1.0
@@ -144,11 +142,9 @@ class TestSequenceFunctions(unittest.TestCase):
 
     for i in range(len(expected_result)):
       for j in range(len(expected_result[1])):
-        expected_result[i][j] = round(expected_result[i][j],4)
+        self.assertAlmostEqual(expected_result[i][j], p[i][j], 4)
 
-    self.assertEqual(expected_result, p)
 
- 
   def test_dataset8(self):
     expected_result=[[0.01105, 0.02464, 0.06799, 0.04472, 0.024651],
                      [0.00715, 0.01017, 0.08696, 0.07988, 0.00935],
@@ -158,7 +154,7 @@ class TestSequenceFunctions(unittest.TestCase):
     task.colors = [['red','green', 'green', 'red','red'],
                    ['red','red','green', 'red', 'red'],
                    ['red','red','green', 'green', 'red'],
-                   ['red','red','red','red','red']]	
+                   ['red','red','red','red','red']]
     task.measurements=['green','green','green','green','green']
     task.motions=[[0,0], [0, 1], [1, 0], [1, 0], [0, 1]]
     task.sensor_right=0.7
@@ -167,13 +163,8 @@ class TestSequenceFunctions(unittest.TestCase):
     p = task.calculate()
 
     for i in range(len(p)):
-      for j in range(len(p[1])):
-        p[i][j] = round(p[i][j],4)
+      for j in range(len(p[0])):
+        self.assertAlmostEqual(p[i][j], expected_result[i][j], 4)
 
-    for i in range(len(expected_result)):
-      for j in range(len(expected_result[1])):
-        expected_result[i][j] = round(expected_result[i][j],4)
-
-    self.assertEqual(expected_result, p)
 if __name__ == '__main__':
   unittest.main()
