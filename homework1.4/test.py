@@ -4,12 +4,12 @@ import task
 class TestSequenceFunctions(unittest.TestCase):
     def failUnlessArraysAlmostEqual(self, first, second, places=7, msg=None):
         """Fail if the two arrays are unequal as determined by their
-         difference rounded to the given number of decimal places
-         (default 7) and comparing to zero.
+           difference rounded to the given number of decimal places
+           (default 7) and comparing to zero.
 
-         Note that decimal places (from zero) are usually not the same
-         as significant digits (measured from the most signficant digit).
-      """
+           Note that decimal places (from zero) are usually not the same
+           as significant digits (measured from the most signficant digit).
+        """
         if (len(first) != len(second)):
             raise self.failureException, \
               (msg or '%r != %r because they have unequal lengths %d & %d', \
