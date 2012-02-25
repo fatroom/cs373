@@ -45,21 +45,21 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_dataset2(self):
       # ARRANGE
-      expected_result=[[0,0,0],[0,0.5,0.5],[0,0,0]]
+        expected_result=[[0,0,0],[0,0.5,0.5],[0,0,0]]
 
-      task.colors = [['green','green','green'],
+        task.colors = [['green','green','green'],
                    ['green','red','red'],
                    ['green','green','green']]
-      task.measurements=['red']
-      task.motions=[[0,0]]
-      task.sensor_right=1.0
-      task.p_move=1.0
+        task.measurements=['red']
+        task.motions=[[0,0]]
+        task.sensor_right=1.0
+        task.p_move=1.0
 
-      # ACT
-      p = task.calculate()
+        # ACT
+        p = task.calculate()
 
-      # ASSERT
-      self.assertArrayAlmostEquals(expected_result, p)
+        # ASSERT
+        self.assertArrayAlmostEquals(expected_result, p)
 
     def test_dataset3(self):
         # ARRANGE
