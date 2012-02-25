@@ -27,21 +27,23 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_dataset1(self):
         # ARRANGE
-        expected_result=[[0,0,0],[0,1,0],[0,0,0]]
+        expected_result = [[0, 0, 0],
+                           [0, 1, 0],
+                           [0, 0, 0]]
 
-        task.colors = [['green','green','green'],
-                   ['green','red','green'],
-                   ['green','green','green']]
-        task.measurements=['red']
-        task.motions=[[0,0]]
-        task.sensor_right=1.0
-        task.p_move=1.0
+        task.colors = [['green', 'green', 'green'],
+                       ['green', 'red', 'green'],
+                       ['green', 'green', 'green']]
+        task.measurements = ['red']
+        task.motions = [[0, 0]]
+        task.sensor_right = 1.0
+        task.p_move = 1.0
 
         # ACT
-        p = task.calculate()
+        actual_result = task.calculate()
 
         # ASSERT
-        self.assertArrayAlmostEquals(expected_result, p)
+        self.assertArrayAlmostEquals(expected_result, actual_result)
 
     def test_dataset2(self):
       # ARRANGE
@@ -56,10 +58,10 @@ class TestSequenceFunctions(unittest.TestCase):
         task.p_move=1.0
 
         # ACT
-        p = task.calculate()
+        actual_result = task.calculate()
 
         # ASSERT
-        self.assertArrayAlmostEquals(expected_result, p)
+        self.assertArrayAlmostEquals(expected_result, actual_result)
 
     def test_dataset3(self):
         # ARRANGE
@@ -76,10 +78,10 @@ class TestSequenceFunctions(unittest.TestCase):
         task.p_move=1.0
 
         # ACT
-        p = task.calculate()
+        actual_result = task.calculate()
 
         # ASSERT
-        self.assertArrayAlmostEquals(expected_result, p, 4)
+        self.assertArrayAlmostEquals(expected_result, actual_result, 4)
 
     def test_dataset4(self):
         # ARRANGE
@@ -96,10 +98,10 @@ class TestSequenceFunctions(unittest.TestCase):
         task.p_move=1.0
 
         # ACT
-        p = task.calculate()
+        actual_result = task.calculate()
 
         # ASSERT
-        self.assertArrayAlmostEquals(expected_result, p, 4)
+        self.assertArrayAlmostEquals(expected_result, actual_result, 4)
 
     def test_dataset5(self):
         # ARRANGE
@@ -116,10 +118,10 @@ class TestSequenceFunctions(unittest.TestCase):
         task.p_move=1.0
 
         # ACT
-        p = task.calculate()
+        actual_result = task.calculate()
 
         # ASSERT
-        self.assertArrayAlmostEquals(expected_result, p, 4)
+        self.assertArrayAlmostEquals(expected_result, actual_result, 4)
 
     def test_dataset6(self):
         # ARRANGE
@@ -136,10 +138,10 @@ class TestSequenceFunctions(unittest.TestCase):
         task.p_move=0.5
 
         # ACT
-        p = task.calculate()
+        actual_result = task.calculate()
 
         # ASSERT
-        self.assertArrayAlmostEquals(expected_result, p, 4)
+        self.assertArrayAlmostEquals(expected_result, actual_result, 4)
 
     def test_dataset7(self):
         # ARRANGE
@@ -156,10 +158,10 @@ class TestSequenceFunctions(unittest.TestCase):
         task.p_move=0.5
 
         # ACT
-        p = task.calculate()
+        actual_result = task.calculate()
 
         # ASSERT
-        self.assertArrayAlmostEquals(expected_result, p, 4)
+        self.assertArrayAlmostEquals(expected_result, actual_result, 4)
 
 
     def test_dataset8(self):
@@ -179,10 +181,10 @@ class TestSequenceFunctions(unittest.TestCase):
         task.p_move=0.8
 
         # ACT
-        p = task.calculate()
+        actual_result = task.calculate()
 
         # ASSERT
-        self.assertArrayAlmostEquals(expected_result, p, 4)
+        self.assertArrayAlmostEquals(expected_result, actual_result, 4)
 
 if __name__ == '__main__':
     unittest.main()
