@@ -63,7 +63,9 @@ class TestSequenceFunctions(unittest.TestCase):
 
     def test_dataset3(self):
         # ARRANGE
-        expected_result=[[0.06666,0.06666, 0.06666],[0.06666,0.26666,0.26666],[0.06666,0.06666,0.06666]]
+        expected_result=[[0.06666,0.06666, 0.06666],
+                         [0.06666,0.26666,0.26666],
+                         [0.06666,0.06666,0.06666]]
 
         task.colors = [['green','green','green'],
                    ['green','red','red'],
