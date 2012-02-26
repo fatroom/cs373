@@ -188,5 +188,24 @@ class TestSequenceFunctions(unittest.TestCase):
         # ASSERT
         self.assertArrayAlmostEquals(expected_result, actual_result, 4)
 
+    def test_dataset9(self):
+        # ARRANGE
+        expected_result = [[0.0, 0.0, 0.0],
+                           [1.0, 0.0, 0.0],
+                           [0.0, 0.0, 0.0]]
+
+        task.colors = [['green', 'red', 'green'],
+                       ['green', 'red', 'red'],
+                       ['green', 'red', 'green']]
+        task.measurements = ['red', 'green']
+        task.motions = [[0, 0], [0, -1]]
+        task.sensor_right = 1.0
+        task.p_move = 1.0
+
+        # ACT
+        actual_result = task.calculate()
+
+        # ASSERT
+        self.assertArrayAlmostEquals(expected_result, actual_result, 4)
 if __name__ == '__main__':
     unittest.main()
