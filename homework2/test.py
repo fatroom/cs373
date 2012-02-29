@@ -1,3 +1,6 @@
+#based on fatroom's test framework for homework 1
+#see: https://github.com/fatroom/cs373/blob/master/homework1.4/task.py
+
 import unittest
 import task
 from task import matrix
