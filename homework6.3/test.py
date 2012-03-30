@@ -63,7 +63,9 @@ class SLAMTest(unittest.TestCase):
         for i, (xrow, yrow) in enumerate(zip(x.value, y.value)):
             for j, (xel, yel) in enumerate(zip(xrow, yrow)):
                 self.assertAlmostEqual(xel, yel, precision,
-                                       "The element at (%d, %d) in %s matrix differs: expected %.3f, got %.3f" % (i, j, name, xel, yel))
+                                       ("The element at (%d, %d) in %s matrix differs: expected %." + 
+                                        str(precision+1) + "f, got %." + str(precision+1) + 
+                                        "f") % (i, j, name, xel, yel))
 
     def solution_check(self, result, answer_mu, answer_omega):
         self.assertTrue(len(result) == 2,
